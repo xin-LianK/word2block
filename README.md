@@ -1,52 +1,6 @@
-# 旧版文档管理独立项目
-
-这是从主项目 `src/views/document` 拆出的旧版文档/模板管理前端，用于本地演示和维护文档编辑、模板管理、DOCX 导入、数据源配置、版本记录、导出预览等能力。
+# 文档管理
 
 项目目前使用前端内存数据模拟后端数据库，刷新页面后运行态变更不会持久化。模板 JSON 导入/导出、DOCX 解析、Word/PDF 导出等浏览器端能力可以独立运行；AI 生成 SQL 和 Python DOCX 预览服务需要额外配置环境变量。
-
-## 技术栈
-
-- Vue 3 + Vite
-- Pinia
-- Vue Router
-- Element Plus
-- mammoth：浏览器端 DOCX 解析
-- docx、file-saver：Word 导出
-- jsPDF、html2canvas：PDF 导出
-- xlsx：模板数据源文件解析相关能力
-
-## 启动
-
-```bash
-npm install
-npm run dev
-```
-
-默认开发地址：
-
-```text
-http://localhost:5174/
-```
-
-生产构建：
-
-```bash
-npm run build
-```
-
-本地预览构建产物：
-
-```bash
-npm run preview
-```
-
-## 页面路由
-
-- `/`：重定向到文档列表
-- `/document/index`：文档列表，可新建、重命名、删除文档
-- `/document/templates`：模板列表，可新建、复制、导入、导出、删除模板
-- `/document-edit/:id`：文档编辑页
-- `/template-edit/:id`：模板编辑页
 
 ## 主要功能
 
@@ -133,6 +87,50 @@ legacy-document-app/
 - `src/utils/docx-template-import.js`：浏览器端 DOCX 到模板草稿解析
 - `src/utils/docx-template-import-provider.js`：Python 优先、浏览器回退的 DOCX 解析调度
 - `src/utils/export-document.js`：Word/PDF 导出和导出预览 HTML 生成
+
+## 技术栈
+
+- Vue 3 + Vite
+- Pinia
+- Vue Router
+- Element Plus
+- mammoth：浏览器端 DOCX 解析
+- docx、file-saver：Word 导出
+- jsPDF、html2canvas：PDF 导出
+- xlsx：模板数据源文件解析相关能力
+
+## 启动
+
+```bash
+npm install
+npm run dev
+```
+
+默认开发地址：
+
+```text
+http://localhost:5174/
+```
+
+生产构建：
+
+```bash
+npm run build
+```
+
+本地预览构建产物：
+
+```bash
+npm run preview
+```
+
+## 页面路由
+
+- `/`：重定向到文档列表
+- `/document/index`：文档列表，可新建、重命名、删除文档
+- `/document/templates`：模板列表，可新建、复制、导入、导出、删除模板
+- `/document-edit/:id`：文档编辑页
+- `/template-edit/:id`：模板编辑页
 
 ## 开发注意事项
 
